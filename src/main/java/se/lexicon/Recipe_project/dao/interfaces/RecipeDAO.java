@@ -1,11 +1,8 @@
 package se.lexicon.Recipe_project.dao.interfaces;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import se.lexicon.Recipe_project.models.Recipe;
+import se.lexicon.Recipe_project.models.entity.Recipe;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RecipeDAO extends CRUD<Recipe, Integer>{
 

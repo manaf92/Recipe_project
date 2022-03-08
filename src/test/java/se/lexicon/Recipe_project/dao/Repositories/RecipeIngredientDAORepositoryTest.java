@@ -7,29 +7,27 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import se.lexicon.Recipe_project.dao.Data;
 import se.lexicon.Recipe_project.models.entity.Ingredient;
-import se.lexicon.Recipe_project.models.entity.RecipeInstruction;
+import se.lexicon.Recipe_project.models.entity.Measurement;
+import se.lexicon.Recipe_project.models.entity.RecipeIngredient;
 
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@AutoConfigureTestDatabase
 @AutoConfigureTestEntityManager
+@AutoConfigureTestDatabase
 @Transactional
-@DirtiesContext
-class RecipeInstructionDAORepositoryTest {
+class RecipeIngredientDAORepositoryTest {
 
     @Autowired
-    private RecipeInstructionDAORepository instructionDAORepository;
+    private RecipeIngredientDAORepository recipeIngredientDAORepository;
     @Autowired
     private TestEntityManager em;
 
-    RecipeInstruction RecipeInstruction1;
+    RecipeIngredient recipeIngredient1;
     String id;
 
     Ingredient ingredient;
@@ -38,48 +36,47 @@ class RecipeInstructionDAORepositoryTest {
     void setUp() {
         //Data Class is  in: test/java/se/lexicon/Recipe_project/dao/Data.java
         Data data = new Data(em);
-        RecipeInstruction1 =data.getRecipeInstruction1();
-        id = RecipeInstruction1.getInstructionId();
+        recipeIngredient1 =data.getRecipeIngredient1();
+        id = recipeIngredient1.getRecipeIngredientId();
         ingredient = data.getIngredient1();
 
     }
     @Test
     void create() {
-        int ex = instructionDAORepository.findAll().size() + 1;
-        instructionDAORepository.create(new RecipeInstruction(null,"put potato on"));
-        int ac = instructionDAORepository.findAll().size();
+        int ex = recipeIngredientDAORepository.findAll().size() + 1;
+        recipeIngredientDAORepository.create(new RecipeIngredient(null,2,ingredient, Measurement.KG));
+        int ac = recipeIngredientDAORepository.findAll().size();
         assertEquals(ex,ac);
     }
 
     @Test
     void findById() {
         String ex = id;
-        RecipeInstruction RecipeInstruction =  instructionDAORepository.findById(id);
-        String ac = RecipeInstruction.getInstructionId();
+        RecipeIngredient recipeIngredient =  recipeIngredientDAORepository.findById(id);
+        String ac = recipeIngredient.getRecipeIngredientId();
         assertEquals(ex,ac);
     }
 
     @Test
     void findAll() {
         int ex = 2;
-        int ac =  instructionDAORepository.findAll().size();
+        int ac =  recipeIngredientDAORepository.findAll().size();
         assertEquals(ex,ac);
     }
 
     @Test
     void update() {
-        String ex = "put potato on";
-        RecipeInstruction ri = new RecipeInstruction(id,"put potato on");
-        instructionDAORepository.update(ri);
-        String ac = instructionDAORepository.findById(id).getInstructions();
+        double ex = 4;
+        recipeIngredientDAORepository.update(new RecipeIngredient(id,4,ingredient, Measurement.KG));
+        double ac = recipeIngredientDAORepository.findById(id).getAmount();
         assertEquals(ex,ac);
     }
 
     @Test
     void delete() {
         System.out.println(id);
-        instructionDAORepository.delete(id);
-        RecipeInstruction findingRemovedIngredient = em.find(RecipeInstruction.class, id);
+        recipeIngredientDAORepository.delete(id);
+        RecipeIngredient findingRemovedIngredient = em.find(RecipeIngredient.class, id);
         assertNull(findingRemovedIngredient);
     }
 

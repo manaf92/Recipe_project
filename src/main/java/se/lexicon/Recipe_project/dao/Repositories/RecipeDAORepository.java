@@ -1,18 +1,14 @@
 package se.lexicon.Recipe_project.dao.Repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import se.lexicon.Recipe_project.dao.interfaces.RecipeDAO;
-import se.lexicon.Recipe_project.models.Ingredient;
-import se.lexicon.Recipe_project.models.Recipe;
-import se.lexicon.Recipe_project.models.RecipeInstruction;
+import se.lexicon.Recipe_project.models.entity.Recipe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @Transactional

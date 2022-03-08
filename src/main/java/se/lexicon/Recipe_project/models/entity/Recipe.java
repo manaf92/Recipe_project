@@ -1,6 +1,4 @@
-package se.lexicon.Recipe_project.models;
-
-import org.springframework.beans.factory.annotation.Autowired;
+package se.lexicon.Recipe_project.models.entity;
 
 import javax.persistence.*;
 import java.util.*;
