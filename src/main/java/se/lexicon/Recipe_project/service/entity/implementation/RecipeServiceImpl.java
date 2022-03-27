@@ -1,12 +1,11 @@
-package se.lexicon.Recipe_project.service.implementation;
+package se.lexicon.Recipe_project.service.entity.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.lexicon.Recipe_project.dao.interfaces.RecipeDAO;
-import se.lexicon.Recipe_project.dao.interfaces.RecipeInstructionDAO;
-import se.lexicon.Recipe_project.models.dto.RecipeFormDTO;
+import se.lexicon.Recipe_project.models.dto.form.RecipeFormDTO;
 import se.lexicon.Recipe_project.models.entity.Recipe;
-import se.lexicon.Recipe_project.service.interfaces.RecipeService;
+import se.lexicon.Recipe_project.service.entity.implementation.interfaces.RecipeService;
 
 import java.util.Collection;
 @Service
@@ -26,7 +25,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Collection<Recipe> findAll() {
-        return null;
+        return recipeDAO.findAll();
     }
 
     @Override

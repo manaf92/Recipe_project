@@ -1,4 +1,4 @@
-package se.lexicon.Recipe_project.models.dto;
+package se.lexicon.Recipe_project.models.dto.form;
 
 
 public class IngredientFormDTO {

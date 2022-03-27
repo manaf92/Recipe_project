@@ -1,4 +1,4 @@
-package se.lexicon.Recipe_project.service.interfaces;
+package se.lexicon.Recipe_project.service.entity.implementation.interfaces;
 
 
 import java.util.Collection;

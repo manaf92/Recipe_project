@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipe Presentation</title>
+
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <td>recipe id</td>
+            <td>recipe name</td>
+        </tr>
+        </thead>
+        <tbody>
+       <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.getRecipeId()}"></td>
+            <td th:text="${recipe.getRecipeName()}"></td>
+
+        </tbody>
+    </table>
+    <div>
+        (se.lexicon.Recipe_project.models.entity.Measurement.DL ) se String (org.springframework.ui.Model)
+    </div>
+</body>
+</html>

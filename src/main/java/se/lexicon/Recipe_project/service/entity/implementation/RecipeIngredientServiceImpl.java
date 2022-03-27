@@ -1,12 +1,11 @@
-package se.lexicon.Recipe_project.service.implementation;
+package se.lexicon.Recipe_project.service.entity.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import se.lexicon.Recipe_project.dao.interfaces.RecipeCategoryDAO;
 import se.lexicon.Recipe_project.dao.interfaces.RecipeIngredientDAO;
-import se.lexicon.Recipe_project.models.dto.RecipeIngredientFormDTO;
+import se.lexicon.Recipe_project.models.dto.form.RecipeIngredientFormDTO;
 import se.lexicon.Recipe_project.models.entity.RecipeIngredient;
-import se.lexicon.Recipe_project.service.interfaces.RecipeIngredientService;
+import se.lexicon.Recipe_project.service.entity.implementation.interfaces.RecipeIngredientService;
 
 import java.util.Collection;
 @Service
