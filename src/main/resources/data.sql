@@ -1,4 +1,4 @@
-insert into recipe_project.ingredient (ingredient_id, ingredient_name)
+/*insert into recipe_project.ingredient (ingredient_id, ingredient_name)
 values (1,'salmon');
 insert into recipe_project.ingredient (ingredient_id, ingredient_name)
 values (2,'tuna');
@@ -50,3 +50,4 @@ insert into recipe_project.recipe_recipe_category (recipe_id, recipe_category_id
 values (7,14);
 insert into recipe_project.recipe_recipe_category (recipe_id, recipe_category_id)
 values (9,14);
+*/
