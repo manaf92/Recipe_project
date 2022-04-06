@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.lexicon.Recipe_project.models.dto.view.RecipeViewDTO;
-import se.lexicon.Recipe_project.models.entity.Recipe;
 import se.lexicon.Recipe_project.service.entity.RecipeServiceImpl;
 
 import java.util.List;
