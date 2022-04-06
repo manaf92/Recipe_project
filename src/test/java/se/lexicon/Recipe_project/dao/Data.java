@@ -71,10 +71,10 @@ public class Data {
         em.persist(recipeInstruction1);
         em.persist(recipeInstruction2);
         list= Arrays.asList(
-                new Recipe(0,"lunch", recipeInstruction1),
-                new Recipe(0,"salmon", recipeInstruction2),
-                new Recipe(0,"salmon", recipeInstruction2),
-                new Recipe(0,"tuna", recipeInstruction2)
+                new Recipe(0,"lunch", recipeInstruction1,null,null),
+                new Recipe(0,"salmon", recipeInstruction2,null,null),
+                new Recipe(0,"salmon", recipeInstruction2,null,null),
+                new Recipe(0,"tuna", recipeInstruction2,null,null)
         );
         list.forEach(em::persist);
         r1 =  list.get(0);
@@ -83,9 +83,9 @@ public class Data {
         r4 =  list.get(3);
 
 
-        recipeCategory1 = new RecipeCategory(0,"lunch");
-        RecipeCategory recipeCategory2 = new RecipeCategory(0,"breakfast");
-        RecipeCategory recipeCategory3 = new RecipeCategory(0,"holidays");
+        recipeCategory1 = new RecipeCategory(0,"lunch",null);
+        RecipeCategory recipeCategory2 = new RecipeCategory(0,"breakfast",null);
+        RecipeCategory recipeCategory3 = new RecipeCategory(0,"holidays",null);
 
         r1.setRecipeCategories(Set.of(recipeCategory1,recipeCategory2));
         r2.setRecipeCategories(Set.of(recipeCategory1,recipeCategory2));
@@ -96,8 +96,8 @@ public class Data {
         em.persist(recipeCategory3);
 
 
-        recipeIngredient1 = new RecipeIngredient( null ,2,ingredient1, Measurement.CL);
-        RecipeIngredient recipeIngredient2 = new RecipeIngredient( null ,4,ingredient2, Measurement.KG);
+        recipeIngredient1 = new RecipeIngredient( null ,2,ingredient1, Measurement.CL,null);
+        RecipeIngredient recipeIngredient2 = new RecipeIngredient( null ,4,ingredient2, Measurement.KG,null);
         r1.addRecipeIngredient(recipeIngredient1);
         r3.addRecipeIngredient(recipeIngredient2);
         em.persist(recipeIngredient1);

@@ -30,8 +30,8 @@ public class IngredientDaoRepository implements IngredientDAO {
     }
 
     @Override
-    public Ingredient  findById(Integer id) {
-        return entityManager.find(Ingredient.class,id);
+    public Optional<Ingredient>  findById(Integer id) {
+        return Optional.ofNullable(entityManager.find(Ingredient.class,id));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class IngredientDaoRepository implements IngredientDAO {
 
     @Override
     public void delete(Integer id) {
-        entityManager.remove(findById(id));
+        entityManager.remove(findById(id).get());
 
     }
 

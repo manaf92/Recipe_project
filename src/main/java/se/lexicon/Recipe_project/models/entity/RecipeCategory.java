@@ -22,10 +22,10 @@ public class RecipeCategory {
     )
     private Set<Recipe> recipes;
 
-    public RecipeCategory(int categoryId, String category) {
+    public RecipeCategory(int categoryId, String category, Set<Recipe> recipes) {
         this.categoryId = categoryId;
         this.category = category;
-        this.recipes = new HashSet<>();
+        this.recipes = recipes;
     }
 
     public RecipeCategory() {

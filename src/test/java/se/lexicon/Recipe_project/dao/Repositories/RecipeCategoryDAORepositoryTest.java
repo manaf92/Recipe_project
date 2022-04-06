@@ -36,7 +36,7 @@ class RecipeCategoryDAORepositoryTest {
     @Test
     void create() {
         int ex = categoryDAORepository.findAll().size() + 1;
-        categoryDAORepository.create(new RecipeCategory(0,"fit"));
+        categoryDAORepository.create(new RecipeCategory(0,"fit",null));
         int ac = categoryDAORepository.findAll().size();
         assertEquals(ex,ac);
     }
@@ -44,7 +44,7 @@ class RecipeCategoryDAORepositoryTest {
     @Test
     void findById() {
         int ex = id;
-        RecipeCategory recipeCategory =  categoryDAORepository.findById(id);
+        RecipeCategory recipeCategory =  categoryDAORepository.findById(id).get();
         int ac = recipeCategory.getCategoryId();
         assertEquals(ex,ac);
     }
@@ -59,8 +59,8 @@ class RecipeCategoryDAORepositoryTest {
     @Test
     void update() {
         String ex = "fit";
-        RecipeCategory recipeCategory =  categoryDAORepository.update(new RecipeCategory(id,"fit"));
-        String ac = categoryDAORepository.findById(id).getCategory();
+        RecipeCategory recipeCategory =  categoryDAORepository.update(new RecipeCategory(id,"fit",null));
+        String ac = categoryDAORepository.findById(id).get().getCategory();
         assertEquals(ex,ac);
     }
 

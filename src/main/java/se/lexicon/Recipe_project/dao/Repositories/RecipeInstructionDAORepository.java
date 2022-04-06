@@ -6,14 +6,14 @@ import se.lexicon.Recipe_project.dao.interfaces.RecipeInstructionDAO;
 import se.lexicon.Recipe_project.models.entity.RecipeInstruction;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
 public class RecipeInstructionDAORepository implements RecipeInstructionDAO {
-    @PersistenceContext
+
     private final EntityManager entityManager;
     @Autowired
     public RecipeInstructionDAORepository(EntityManager entityManager) {
@@ -27,8 +27,8 @@ public class RecipeInstructionDAORepository implements RecipeInstructionDAO {
     }
 
     @Override
-    public RecipeInstruction findById(String id) {
-        return entityManager.find(RecipeInstruction.class,id);
+    public Optional<RecipeInstruction> findById(String id) {
+        return Optional.ofNullable(entityManager.find(RecipeInstruction.class,id));
     }
 
     @Override
@@ -44,6 +44,6 @@ public class RecipeInstructionDAORepository implements RecipeInstructionDAO {
 
     @Override
     public void delete(String id) {
-        entityManager.remove(findById(id));
+        entityManager.remove(findById(id).get());
     }
 }

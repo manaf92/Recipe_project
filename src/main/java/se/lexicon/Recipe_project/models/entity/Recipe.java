@@ -27,22 +27,27 @@ public class Recipe {
     )
     private Set<RecipeCategory> recipeCategories;
 
-    public Recipe(int recipeId, String recipeName, RecipeInstruction recipeInstruction) {
+    public Recipe(int recipeId, String recipeName, RecipeInstruction recipeInstruction, List<RecipeIngredient> recipeIngredients, Set<RecipeCategory> recipeCategories) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
-        this.recipeInstruction = recipeInstruction;
-        this.recipeIngredients = new ArrayList<>();
         this.recipeCategories = new HashSet<>();
+        this.recipeIngredients = new ArrayList<>();
+        this.recipeInstruction = new RecipeInstruction();
+        setRecipeInstruction(recipeInstruction);
+        setRecipeIngredients(recipeIngredients);
+        setRecipeCategories(recipeCategories);
     }
 
     public Recipe() {
     }
 
     public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
-        this.recipeIngredients = recipeIngredients;
+        if (recipeIngredients==null) recipeIngredients = new ArrayList<>();
+        this.recipeIngredients.addAll(recipeIngredients);
     }
 
     public void setRecipeCategories(Set<RecipeCategory> recipeCategories) {
+        if (recipeCategories == null ) recipeCategories = new HashSet<>();
         this.recipeCategories.addAll(recipeCategories);
     }
 
@@ -67,6 +72,7 @@ public class Recipe {
     }
 
     public void setRecipeInstruction(RecipeInstruction recipeInstruction) {
+        if (recipeInstruction==null ) recipeInstruction = new RecipeInstruction();
         this.recipeInstruction = recipeInstruction;
     }
 

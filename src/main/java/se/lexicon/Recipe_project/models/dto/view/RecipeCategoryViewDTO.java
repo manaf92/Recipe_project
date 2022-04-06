@@ -2,15 +2,15 @@ package se.lexicon.Recipe_project.models.dto.view;
 
 import java.util.Set;
 
-public class RecipeCategoryDTO {
+public class RecipeCategoryViewDTO {
     private int categoryId;
     private String category;
-    private Set<RecipeDTO> recipesDTO;
+    private Set<RecipeViewDTO> recipes;
 
-    public RecipeCategoryDTO(int categoryId, String category, Set<RecipeDTO> recipesDTO) {
+    public RecipeCategoryViewDTO(int categoryId, String category, Set<RecipeViewDTO> recipes) {
         this.categoryId = categoryId;
         this.category = category;
-        this.recipesDTO = recipesDTO;
+        this.recipes = recipes;
     }
 
     public int getCategoryId() {
@@ -29,11 +29,11 @@ public class RecipeCategoryDTO {
         this.category = category;
     }
 
-    public Set<RecipeDTO> getRecipesDTO() {
-        return recipesDTO;
+    public Set<RecipeViewDTO> getRecipes() {
+        return recipes;
     }
 
-    public void setRecipesDTO(Set<RecipeDTO> recipesDTO) {
-        this.recipesDTO = recipesDTO;
+    public void setRecipes(Set<RecipeViewDTO> recipes) {
+        this.recipes = recipes;
     }
 }

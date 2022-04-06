@@ -1,16 +1,16 @@
-package se.lexicon.Recipe_project.models.dto.form;
+package se.lexicon.Recipe_project.models.dto.view;
 
 import java.util.List;
 import java.util.Set;
 
-public class RecipeFormDTO {
+public class RecipeViewDTO {
     private int recipeId;
     private String  recipeName;
-    private RecipeInstructionFormDTO recipeInstruction;
-    private List<RecipeIngredientFormDTO> recipeIngredients ;
-    private Set<RecipeCategoryFormDTO> recipeCategories;
+    private RecipeInstructionViewDTO recipeInstruction;
+    private List<RecipeIngredientViewDTO> recipeIngredients ;
+    private Set<RecipeCategoryViewDTO> recipeCategories;
 
-    public RecipeFormDTO(int recipeId, String recipeName, RecipeInstructionFormDTO recipeInstruction, List<RecipeIngredientFormDTO> recipeIngredients, Set<RecipeCategoryFormDTO> recipeCategories) {
+    public RecipeViewDTO(int recipeId, String recipeName, RecipeInstructionViewDTO recipeInstruction, List<RecipeIngredientViewDTO> recipeIngredients, Set<RecipeCategoryViewDTO> recipeCategories) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeInstruction = recipeInstruction;
@@ -34,27 +34,27 @@ public class RecipeFormDTO {
         this.recipeName = recipeName;
     }
 
-    public RecipeInstructionFormDTO getRecipeInstruction() {
+    public RecipeInstructionViewDTO getRecipeInstruction() {
         return recipeInstruction;
     }
 
-    public void setRecipeInstruction(RecipeInstructionFormDTO recipeInstruction) {
+    public void setRecipeInstruction(RecipeInstructionViewDTO recipeInstruction) {
         this.recipeInstruction = recipeInstruction;
     }
 
-    public List<RecipeIngredientFormDTO> getRecipeIngredients() {
+    public List<RecipeIngredientViewDTO> getRecipeIngredients() {
         return recipeIngredients;
     }
 
-    public void setRecipeIngredients(List<RecipeIngredientFormDTO> recipeIngredients) {
+    public void setRecipeIngredients(List<RecipeIngredientViewDTO> recipeIngredients) {
         this.recipeIngredients = recipeIngredients;
     }
 
-    public Set<RecipeCategoryFormDTO> getRecipeCategories() {
+    public Set<RecipeCategoryViewDTO> getRecipeCategories() {
         return recipeCategories;
     }
 
-    public void setRecipeCategories(Set<RecipeCategoryFormDTO> recipeCategories) {
+    public void setRecipeCategories(Set<RecipeCategoryViewDTO> recipeCategories) {
         this.recipeCategories = recipeCategories;
     }
 }

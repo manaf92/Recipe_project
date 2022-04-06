@@ -6,8 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import se.lexicon.Recipe_project.models.dto.view.RecipeViewDTO;
 import se.lexicon.Recipe_project.models.entity.Recipe;
-import se.lexicon.Recipe_project.service.entity.implementation.RecipeServiceImpl;
+import se.lexicon.Recipe_project.service.entity.RecipeServiceImpl;
 
 import java.util.List;
 
@@ -22,9 +23,9 @@ public class RecipeRestController {
     }
 
     @GetMapping("/api/v1/recipes")
-    public ResponseEntity<List<Recipe>> getPremises(){
+    public ResponseEntity<List<RecipeViewDTO>> getPremises(){
 
-        List<Recipe> recipes =  (List<Recipe>) recipeService.findAll();
+        List<RecipeViewDTO> recipes =  (List<RecipeViewDTO>) recipeService.findAll();
 
         if (recipes.isEmpty()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

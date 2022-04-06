@@ -26,11 +26,12 @@ public class RecipeIngredient {
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
-    public RecipeIngredient(String recipeIngredientId, double amount, Ingredient ingredient, Measurement measurement) {
+    public RecipeIngredient(String recipeIngredientId, double amount, Ingredient ingredient, Measurement measurement, Recipe recipe) {
         this.recipeIngredientId = recipeIngredientId;
         this.amount = amount;
         this.ingredient = ingredient;
         this.measurement = measurement;
+        this.recipe = recipe;
     }
 
     public RecipeIngredient() {

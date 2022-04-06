@@ -2,19 +2,19 @@ package se.lexicon.Recipe_project.models.dto.view;
 
 import se.lexicon.Recipe_project.models.entity.Measurement;
 
-public class RecipeIngredientDTO {
+public class RecipeIngredientViewDTO {
     private String recipeIngredientId;
     private double amount;
-    private IngredientDTO ingredientDTO;
+    private IngredientViewDTO ingredient;
     private Measurement measurement;
-    private RecipeDTO recipeDTO;
+    private RecipeViewDTO recipe;
 
-    public RecipeIngredientDTO(String recipeIngredientId, double amount, IngredientDTO ingredientDTO, Measurement measurement, RecipeDTO recipeDTO) {
+    public RecipeIngredientViewDTO(String recipeIngredientId, double amount, IngredientViewDTO ingredient, Measurement measurement, RecipeViewDTO recipe) {
         this.recipeIngredientId = recipeIngredientId;
         this.amount = amount;
-        this.ingredientDTO = ingredientDTO;
+        this.ingredient = ingredient;
         this.measurement = measurement;
-        this.recipeDTO = recipeDTO;
+        this.recipe = recipe;
     }
 
     public String getRecipeIngredientId() {
@@ -33,12 +33,12 @@ public class RecipeIngredientDTO {
         this.amount = amount;
     }
 
-    public IngredientDTO getIngredientDTO() {
-        return ingredientDTO;
+    public IngredientViewDTO getIngredient() {
+        return ingredient;
     }
 
-    public void setIngredientDTO(IngredientDTO ingredientDTO) {
-        this.ingredientDTO = ingredientDTO;
+    public void setIngredient(IngredientViewDTO ingredient) {
+        this.ingredient = ingredient;
     }
 
     public Measurement getMeasurement() {
@@ -49,11 +49,11 @@ public class RecipeIngredientDTO {
         this.measurement = measurement;
     }
 
-    public RecipeDTO getRecipeDTO() {
-        return recipeDTO;
+    public RecipeViewDTO getRecipe() {
+        return recipe;
     }
 
-    public void setRecipeDTO(RecipeDTO recipeDTO) {
-        this.recipeDTO = recipeDTO;
+    public void setRecipe(RecipeViewDTO recipe) {
+        this.recipe = recipe;
     }
 }

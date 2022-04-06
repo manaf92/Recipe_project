@@ -44,7 +44,7 @@ class RecipeIngredientDAORepositoryTest {
     @Test
     void create() {
         int ex = recipeIngredientDAORepository.findAll().size() + 1;
-        recipeIngredientDAORepository.create(new RecipeIngredient(null,2,ingredient, Measurement.KG));
+        recipeIngredientDAORepository.create(new RecipeIngredient(null,2,ingredient, Measurement.KG,null));
         int ac = recipeIngredientDAORepository.findAll().size();
         assertEquals(ex,ac);
     }
@@ -52,7 +52,7 @@ class RecipeIngredientDAORepositoryTest {
     @Test
     void findById() {
         String ex = id;
-        RecipeIngredient recipeIngredient =  recipeIngredientDAORepository.findById(id);
+        RecipeIngredient recipeIngredient =  recipeIngredientDAORepository.findById(id).get();
         String ac = recipeIngredient.getRecipeIngredientId();
         assertEquals(ex,ac);
     }
@@ -67,8 +67,8 @@ class RecipeIngredientDAORepositoryTest {
     @Test
     void update() {
         double ex = 4;
-        recipeIngredientDAORepository.update(new RecipeIngredient(id,4,ingredient, Measurement.KG));
-        double ac = recipeIngredientDAORepository.findById(id).getAmount();
+        recipeIngredientDAORepository.update(new RecipeIngredient(id,4,ingredient, Measurement.KG,null));
+        double ac = recipeIngredientDAORepository.findById(id).get().getAmount();
         assertEquals(ex,ac);
     }
 

@@ -54,7 +54,7 @@ class RecipeInstructionDAORepositoryTest {
     @Test
     void findById() {
         String ex = id;
-        RecipeInstruction RecipeInstruction =  instructionDAORepository.findById(id);
+        RecipeInstruction RecipeInstruction =  instructionDAORepository.findById(id).get();
         String ac = RecipeInstruction.getInstructionId();
         assertEquals(ex,ac);
     }
@@ -71,7 +71,7 @@ class RecipeInstructionDAORepositoryTest {
         String ex = "put potato on";
         RecipeInstruction ri = new RecipeInstruction(id,"put potato on");
         instructionDAORepository.update(ri);
-        String ac = instructionDAORepository.findById(id).getInstructions();
+        String ac = instructionDAORepository.findById(id).get().getInstructions();
         assertEquals(ex,ac);
     }
 

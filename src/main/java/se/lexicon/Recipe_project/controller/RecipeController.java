@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import se.lexicon.Recipe_project.service.entity.implementation.RecipeServiceImpl;
+import se.lexicon.Recipe_project.service.entity.RecipeServiceImpl;
 
 @Controller
 public class RecipeController {

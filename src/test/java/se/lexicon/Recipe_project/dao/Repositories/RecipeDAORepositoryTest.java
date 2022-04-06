@@ -81,7 +81,7 @@ class RecipeDAORepositoryTest {
     @Test
     void create() {
         int ex = recipeDAO.findAll().size() + 1;
-        recipeDAO.create(new Recipe(0,"empty", recipeInstruction1));
+        recipeDAO.create(new Recipe(0,"empty", recipeInstruction1,null,null));
         int ac = recipeDAO.findAll().size();
        assertEquals(ex,ac);
     }
@@ -90,7 +90,7 @@ class RecipeDAORepositoryTest {
     void findById() {
 
         int ex = recipe1.getRecipeId();
-        Recipe r = recipeDAO.findById(recipe1.getRecipeId());
+        Recipe r = recipeDAO.findById(recipe1.getRecipeId()).get();
         int ac = r.getRecipeId();
         assertEquals(ex,ac);
     }
@@ -107,9 +107,9 @@ class RecipeDAORepositoryTest {
 
     @Test
     void update() {
-        Recipe r= new Recipe(recipe3.getRecipeId(),"chicken", recipeInstruction1);
+        Recipe r= new Recipe(recipe3.getRecipeId(),"chicken", recipeInstruction1,null,null);
         recipeDAO.update(r);
-         Recipe result = recipeDAO.findById(recipe3.getRecipeId());
+         Recipe result = recipeDAO.findById(recipe3.getRecipeId()).get();
         String ex = "chicken";
 
         String ac = result.getRecipeName();

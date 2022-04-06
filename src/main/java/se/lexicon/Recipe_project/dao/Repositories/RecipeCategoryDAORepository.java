@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -28,8 +29,8 @@ public class RecipeCategoryDAORepository implements RecipeCategoryDAO {
     }
 
     @Override
-    public RecipeCategory findById(Integer id) {
-        return entityManager.find(RecipeCategory.class,id);
+    public Optional<RecipeCategory> findById(Integer id) {
+        return Optional.ofNullable(entityManager.find(RecipeCategory.class,id));
     }
 
     @Override
@@ -45,6 +46,6 @@ public class RecipeCategoryDAORepository implements RecipeCategoryDAO {
 
     @Override
     public void delete(Integer id) {
-        entityManager.remove(findById(id));
+        entityManager.remove(findById(id).get());
     }
 }

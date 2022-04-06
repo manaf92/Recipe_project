@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -65,8 +66,8 @@ public class RecipeDAORepository implements RecipeDAO {
     }
 
     @Override
-    public Recipe findById(Integer id) {
-        return entityManager.find(Recipe.class,id);
+    public Optional<Recipe> findById(Integer id) {
+        return Optional.ofNullable(entityManager.find(Recipe.class,id));
     }
 
     @Override
@@ -82,7 +83,7 @@ public class RecipeDAORepository implements RecipeDAO {
 
     @Override
     public void delete(Integer id) {
-        entityManager.remove(findById(id));
+        entityManager.remove(findById(id).get());
     }
 
 }

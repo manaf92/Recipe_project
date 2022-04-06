@@ -45,7 +45,7 @@ class IngredientDaoRepositoryTest {
     @Test
     void findById() {
         int ex = id;
-        Ingredient ingredient =  ingredientDao.findById(id);
+        Ingredient ingredient =  ingredientDao.findById(id).get();
         int ac = ingredient.getIngredientId();
         assertEquals(ex,ac);
     }
@@ -61,7 +61,7 @@ class IngredientDaoRepositoryTest {
     void update() {
         String ex = "beef";
         Ingredient ingredient =  ingredientDao.update(new Ingredient(id,"beef"));
-        String ac = ingredientDao.findById(id).getIngredientName();
+        String ac = ingredientDao.findById(id).get().getIngredientName();
         assertEquals(ex,ac);
     }
 
