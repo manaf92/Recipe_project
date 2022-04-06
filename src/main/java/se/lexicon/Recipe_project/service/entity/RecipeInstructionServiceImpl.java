@@ -2,7 +2,6 @@ package se.lexicon.Recipe_project.service.entity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import se.lexicon.Recipe_project.dao.Repositories.RecipeIngredientDAORepository;
 import se.lexicon.Recipe_project.dao.Repositories.RecipeInstructionDAORepository;
 import se.lexicon.Recipe_project.models.dto.form.RecipeInstructionFormDTO;
 import se.lexicon.Recipe_project.models.dto.view.RecipeInstructionViewDTO;
@@ -12,7 +11,6 @@ import se.lexicon.Recipe_project.service.entity.interfaces.RecipeInstructionServ
 import se.lexicon.Recipe_project.service.facade.EntityViewConverter;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +35,7 @@ public class RecipeInstructionServiceImpl implements RecipeInstructionService {
     }
 
     @Override
-    public Collection<RecipeInstructionViewDTO> findAll() {
+    public List<RecipeInstructionViewDTO> findAll() {
         List<RecipeInstructionViewDTO> list = new ArrayList<>();
         repository.findAll().forEach(recipeInstruction -> list.add(viewConverter.toRecipeInstructionDTO(recipeInstruction)));
         return list;

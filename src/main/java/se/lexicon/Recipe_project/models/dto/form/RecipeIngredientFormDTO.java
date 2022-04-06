@@ -2,8 +2,16 @@ package se.lexicon.Recipe_project.models.dto.form;
 
 import se.lexicon.Recipe_project.models.entity.Measurement;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class RecipeIngredientFormDTO {
     private String recipeIngredientId;
+
+    @NotNull
+    @Min(value = 1,message = "amount should be 1 or grater than 1")
+    @Max(value = 1000, message = "amount should be less than 100")
     private double amount;
     private IngredientFormDTO ingredient;
     private Measurement measurement;

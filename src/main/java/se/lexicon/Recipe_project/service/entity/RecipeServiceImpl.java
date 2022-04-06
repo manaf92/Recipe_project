@@ -39,7 +39,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Collection<RecipeViewDTO> findAll() {
+    public List<RecipeViewDTO> findAll() {
         List<RecipeViewDTO> list = new ArrayList<>();
         repository.findAll().forEach(recipe -> list.add(viewConverter.toSmallRecipeExcludingCategory(recipe)));
         return list;
@@ -76,5 +76,34 @@ public class RecipeServiceImpl implements RecipeService {
         else {
             return false;
         }
+    }
+
+
+    @Override
+    public List<RecipeViewDTO> findByName(String name) {
+        List<RecipeViewDTO> list = new ArrayList<>();
+        repository.findByName(name).forEach(recipe -> list.add(viewConverter.toSmallRecipeExcludingCategory(recipe)));
+        return list;
+    }
+
+    @Override
+    public List<RecipeViewDTO> findByIngredientName(String ingredientName) {
+        List<RecipeViewDTO> list = new ArrayList<>();
+        repository.findByIngredientName(ingredientName).forEach(recipe -> list.add(viewConverter.toSmallRecipeExcludingCategory(recipe)));
+        return list;
+    }
+
+    @Override
+    public List<RecipeViewDTO> findByCategoryName(String categoryName) {
+        List<RecipeViewDTO> list = new ArrayList<>();
+        repository.findByCategoryName(categoryName).forEach(recipe -> list.add(viewConverter.toSmallRecipeExcludingCategory(recipe)));
+        return list;
+    }
+
+    @Override
+    public List<RecipeViewDTO> findByCategories(List<String> categories) {
+        List<RecipeViewDTO> list = new ArrayList<>();
+        repository.findByCategories(categories).forEach(recipe -> list.add(viewConverter.toSmallRecipeExcludingCategory(recipe)));
+        return list;
     }
 }

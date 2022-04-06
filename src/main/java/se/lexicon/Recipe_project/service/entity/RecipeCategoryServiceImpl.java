@@ -33,7 +33,7 @@ public class RecipeCategoryServiceImpl implements RecipeCategoryService {
     }
 
     @Override
-    public Collection<RecipeCategoryViewDTO> findAll() {
+    public List<RecipeCategoryViewDTO> findAll() {
         List<RecipeCategoryViewDTO> recipeCategoryViewDTOS= new ArrayList<>();
         repository.findAll().forEach(recipeCategory -> recipeCategoryViewDTOS.add(viewConverter.toSmallRecipeCategoryExcludingRecipe(recipeCategory)));
         return recipeCategoryViewDTOS;

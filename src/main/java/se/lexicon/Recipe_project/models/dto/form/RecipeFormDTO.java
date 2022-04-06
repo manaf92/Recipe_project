@@ -1,11 +1,16 @@
 package se.lexicon.Recipe_project.models.dto.form;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Set;
 
 public class RecipeFormDTO {
     private int recipeId;
+    @NotBlank(message = "recipeName can not be empty.")
+    @Size(min = 2, max = 50, message = "Need to have between 2 and 50 letters")
     private String  recipeName;
+
     private RecipeInstructionFormDTO recipeInstruction;
     private List<RecipeIngredientFormDTO> recipeIngredients ;
     private Set<RecipeCategoryFormDTO> recipeCategories;

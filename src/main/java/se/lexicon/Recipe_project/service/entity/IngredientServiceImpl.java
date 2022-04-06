@@ -35,7 +35,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public Collection<IngredientViewDTO> findAll() {
+    public List<IngredientViewDTO> findAll() {
         List<IngredientViewDTO> ingredientViewDTOS= new ArrayList<>();
         repository.findAll().forEach(ingredient -> ingredientViewDTOS.add(viewConverter.toIngredientDTO(ingredient)));
         return ingredientViewDTOS;
@@ -53,7 +53,7 @@ public class IngredientServiceImpl implements IngredientService {
         if (ingredientFormDTO == null) throw new  IllegalArgumentException("ingredientFormDTO was null");
         if (ingredientFormDTO.getIngredientId() == 0) throw new  IllegalArgumentException("ingredientFormDTO.getIngredientId() was 0");
         Optional<Ingredient> found = repository.findById(ingredientFormDTO.getIngredientId());
-        if (!found.isPresent()) throw new  IllegalArgumentException("ingredient with id: "+ found.get().getIngredientId() +" is not found");
+        if (!found.isPresent()) throw new  IllegalArgumentException("ingredient with id: "+ ingredientFormDTO.getIngredientId() +" is not found");
         Ingredient ingredient = found.get();
         ingredient.setIngredientName(ingredient.getIngredientName());
         return viewConverter.toIngredientDTO(ingredient);

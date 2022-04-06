@@ -11,7 +11,6 @@ import se.lexicon.Recipe_project.service.entity.interfaces.RecipeIngredientServi
 import se.lexicon.Recipe_project.service.facade.EntityViewConverter;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +39,7 @@ public class RecipeIngredientServiceImpl implements RecipeIngredientService {
     }
 
     @Override
-    public Collection<RecipeIngredientViewDTO> findAll() {
+    public List<RecipeIngredientViewDTO> findAll() {
         List<RecipeIngredientViewDTO> list = new ArrayList<>();
         repository.findAll().forEach(ri -> list.add(viewConverter.toSmallRecipeIngredientExcludingRecipe(ri)));
         return list;
